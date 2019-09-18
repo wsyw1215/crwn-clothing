@@ -5,7 +5,10 @@ const useInputState = init => {
   const setInput = e => {
     setstate(e.target.value);
   };
-  return [state, setInput];
+  const reset = () => {
+    setstate("");
+  }
+  return [state, setInput, reset];
 };
 
 export default useInputState;
