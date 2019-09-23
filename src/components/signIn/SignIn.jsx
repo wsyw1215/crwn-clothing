@@ -3,12 +3,22 @@ import useInputState from "../../hooks/useInputState";
 import FormInput from "../formInput/FormInput";
 import CustomButton from "../custom-buttom/CustomButtom";
 import "./SignIn.scss";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 const SignIn = () => {
-  const [email, setEmail] = useInputState("");
-  const [password, setPassword] = useInputState("");
-  const handleSubmit = () => {};
+  const [email, setEmail, resetEmail] = useInputState("");
+  const [password, setPassword, resetPassword] = useInputState("");
+  const handleSubmit = async event => {
+    event.preventDefault();
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      resetEmail();
+      resetPassword();
+    } catch (error) {
+      console.error(error);
+    }
+    
+  };
   return (
     <div className="sign-in">
       <h2>I already have an account</h2>
