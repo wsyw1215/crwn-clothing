@@ -1,7 +1,7 @@
 import React from "react";
 import useInputState from "../../hooks/useInputState";
 import FormInput from "../formInput/FormInput";
-import CustomButton from "../custom-buttom/CustomButtom";
+import CustomButton from "../custom-button/CustomButton";
 import "./SignIn.scss";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 

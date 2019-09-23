@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SignUp.scss";
 import FormInput from "../formInput/FormInput";
-import CustomButton from "../custom-buttom/CustomButtom";
+import CustomButton from "../custom-button/CustomButton";
 import {
   auth,
   createUserProfileDocuments

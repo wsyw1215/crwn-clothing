@@ -7,8 +7,8 @@ import Header from "./components/header/Header.jsx";
 import SignPage from "./pages/signpage/SignPage.jsx";
 import { auth, createUserProfileDocuments } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user/user.action";
-import SignIn from "./components/signIn/SignIn";
+import { setCurrentUser } from "./redux/user/user.actions";
+
 class App extends Component {
   unsbscribeFromAuth = null;
   componentDidMount() {
