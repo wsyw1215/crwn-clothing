@@ -4,7 +4,7 @@ import PreviewCollection from '../../components/preview-collection/PreviewCollec
 
 
 const Shop = () => {
-    const [shopData, setShopData] = useState(SHOP_DATA);
+    const [shopData] = useState(SHOP_DATA);
     return (
         <div className="shop-page">
             {

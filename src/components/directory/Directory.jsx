@@ -4,7 +4,7 @@ import MenuItem from "../menu-item/MenuItem";
 import sections from "../../data/DirectoryData"
 
 const Directory = () => {
-  const [menu, setMenu] = useState(sections);
+  const [menu] = useState(sections);
   return (
     <div className="directory-menu">
       {menu.map(section => (
