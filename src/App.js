@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/HomePage.jsx";
-import Checkout from './pages/checkout/Checkout';
+import Checkout from "./pages/checkout/Checkout";
 import Shop from "./pages/shop/Shop.jsx";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/header/Header.jsx";
 import SignPage from "./pages/signpage/SignPage.jsx";
-import { auth, createUserProfileDocuments } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocuments
+} from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
@@ -27,6 +30,7 @@ class App extends Component {
         });
       }
       setCurrentUser(userAuth);
+
     });
   }
   componentWillUnmount() {
@@ -56,7 +60,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
-const mapStateToProps = createStructuredSelector ({
+const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 export default connect(

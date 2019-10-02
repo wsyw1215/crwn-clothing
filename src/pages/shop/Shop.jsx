@@ -3,17 +3,42 @@ import CollectionOverview from "../../components/collection-overview/collectionO
 import Collection from "../collection/Collection";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import { selectorShopData } from "../../redux/collection/collection.selectors";
 import { Route } from "react-router-dom";
-const Shop = ({ match }) => {
-  return (
-    <div className="shop-page">
-      <Route exact path={`${match.path}`} component={CollectionOverview} />
-      <Route exact path={`${match.path}/:categoryId`} component={Collection} />
-    </div>
-  );
-};
-const mapStateToProps = createStructuredSelector({
-  shopData: selectorShopData
+import {
+  firestore,
+  convertCollectionsSnapshotToMap
+} from "../../firebase/firebase.utils";
+import { setCollections } from "../../redux/collection/collection.action";
+class Shop extends React.Component {
+  unsubscribeFromSnapshot = null;
+  componentDidMount() {
+    const { setCollections } = this.props;
+    const collectionRef = firestore.collection("collections");
+    collectionRef.onSnapshot(async snapshot => {
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+      console.log('collection from firebase',collectionsMap)
+      setCollections(collectionsMap);
+    });
+  }
+  render() {
+    const { match } = this.props;
+    return (
+      <div className="shop-page">
+        <Route exact path={`${match.path}`} component={CollectionOverview} />
+        <Route
+          exact
+          path={`${match.path}/:categoryId`}
+          component={Collection}
+        />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setCollections: collections => dispatch(setCollections(collections))
 });
-export default connect(mapStateToProps)(Shop);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Shop);

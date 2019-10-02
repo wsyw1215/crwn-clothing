@@ -31,7 +31,7 @@ const CheckoutItem = ({ item, clearItem, addItem, removeItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} />
+        <img src={imageUrl} alt="" />
       </ImageContainer>
       <Name>{name}</Name>
       <Quantity>

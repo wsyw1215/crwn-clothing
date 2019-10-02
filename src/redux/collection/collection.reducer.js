@@ -1,6 +1,7 @@
+import { CollectionActionTypes } from "./collection.type";
 const INITIAL_STATE = {
   shopData: {
-    hats:{
+    hats: {
       id: 1,
       title: "Hats",
       routeName: "shop/hats",
@@ -61,7 +62,7 @@ const INITIAL_STATE = {
         }
       ]
     },
-    sneakers:{
+    sneakers: {
       id: 2,
       title: "Sneakers",
       routeName: "shop/sneakers",
@@ -116,7 +117,7 @@ const INITIAL_STATE = {
         }
       ]
     },
-    jackets:{
+    jackets: {
       id: 3,
       title: "Jackets",
       routeName: "shop/jackets",
@@ -153,7 +154,7 @@ const INITIAL_STATE = {
         }
       ]
     },
-    womens:{
+    womens: {
       id: 4,
       title: "Womens",
       routeName: "shop/womens",
@@ -202,7 +203,7 @@ const INITIAL_STATE = {
         }
       ]
     },
-    mens:{
+    mens: {
       id: 5,
       title: "Mens",
       routeName: "shop/mens",
@@ -250,6 +251,11 @@ const INITIAL_STATE = {
 
 const collectionReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case CollectionActionTypes.SET_COLLECTION:
+      return {
+        ...state,
+        shopData: action.payload
+      };
     default:
       return state;
   }
