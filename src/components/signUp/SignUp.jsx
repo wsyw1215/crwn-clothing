@@ -1,5 +1,5 @@
 import React from "react";
-import "./SignUp.scss";
+import { SignUpContainer, Title } from "./SignUp.styles";
 import FormInput from "../formInput/FormInput";
 import CustomButton from "../custom-button/CustomButton";
 import {
@@ -39,10 +39,10 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="sign-up">
-      <h2>I do not have a account</h2>
-      <span className="title">Sign up with your email and password</span>
-      <form className="sign-up-form" onSubmit={handleSubmit}>
+    <SignUpContainer className="sign-up">
+      <Title>I do not have a account</Title>
+      <span>Sign up with your email and password</span>
+      <form onSubmit={handleSubmit}>
         <FormInput
           type="text"
           value={displayName}
@@ -73,7 +73,7 @@ const SignUp = () => {
         />
         <CustomButton type="submit">SIGN UP</CustomButton>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 

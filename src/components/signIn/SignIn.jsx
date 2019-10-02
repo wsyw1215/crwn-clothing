@@ -2,7 +2,7 @@ import React from "react";
 import useInputState from "../../hooks/useInputState";
 import FormInput from "../formInput/FormInput";
 import CustomButton from "../custom-button/CustomButton";
-import "./SignIn.scss";
+import { SignInContainer, Title, ButtonsContainer } from "./SignIn.styles";
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
 const SignIn = () => {
@@ -17,12 +17,11 @@ const SignIn = () => {
     } catch (error) {
       console.error(error);
     }
-    
   };
   return (
-    <div className="sign-in">
-      <h2>I already have an account</h2>
-      <span className="title">Sign in with your Email and Password</span>
+    <SignInContainer>
+      <Title>I already have an account</Title>
+      <span>Sign in with your Email and Password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           type="email"
@@ -38,14 +37,14 @@ const SignIn = () => {
           required
           label="Password"
         />
-        <div className="buttons">
+        <ButtonsContainer>
           <CustomButton type="submit">Sign In</CustomButton>
           <CustomButton isGoogleSignIn onClick={signInWithGoogle}>
             Google Account
           </CustomButton>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

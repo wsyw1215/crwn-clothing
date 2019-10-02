@@ -1,11 +1,21 @@
 import React from "react";
-import "./CheckoutItem.scss";
 import { connect } from "react-redux";
 import {
   ClearItemFromCart,
   AddItem,
   RemoveItem
 } from "../../redux/cart/cart.actions";
+
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  Name,
+  Quantity,
+  Price,
+  Value,
+  Arrow,
+  RemoveButton
+} from "./CheckoutItem.styles";
 
 const CheckoutItem = ({ item, clearItem, addItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = item;
@@ -19,25 +29,25 @@ const CheckoutItem = ({ item, clearItem, addItem, removeItem }) => {
     addItem(item);
   };
   return (
-    <div className="checkout-item">
-      <div className="image-container">
+    <CheckoutItemContainer>
+      <ImageContainer>
         <img src={imageUrl} />
-      </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
-        <div className="arrow" onClick={handleSub}>
+      </ImageContainer>
+      <Name>{name}</Name>
+      <Quantity>
+        <Arrow onClick={handleSub}>
           &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={handleAdd}>
+        </Arrow>
+        <Value>{quantity}</Value>
+        <Arrow onClick={handleAdd}>
           &#10095;
-        </div>
-      </span>
-      <span className="price">{price}</span>
-      <div className="remove-button" onClick={handleRemove}>
+        </Arrow>
+      </Quantity>
+      <Price>{price}</Price>
+      <RemoveButton onClick={handleRemove}>
         &#10005;
-      </div>
-    </div>
+      </RemoveButton>
+    </CheckoutItemContainer>
   );
 };
 const mapDispatchToProp = dispatch => ({

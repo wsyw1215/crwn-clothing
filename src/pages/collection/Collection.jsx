@@ -1,5 +1,5 @@
 import React from "react";
-import "./Collection.scss";
+import { CollectionContainer, Title, ItemContainer } from "./Collection.styles";
 import CollectionItem from "../../components/collection-item/CollectionItem";
 import { connect } from "react-redux";
 import { selectCollection } from "../../redux/collection/collection.selectors";
@@ -7,14 +7,14 @@ const Category = ({ collection }) => {
   console.log(collection);
   const { items } = collection;
   return (
-    <div className="collection-page">
-      <h2 className="title">{collection.title}</h2>
-      <div className="items">
+    <CollectionContainer>
+      <Title>{collection.title}</Title>
+      <ItemContainer>
         {items.map(item => (
           <CollectionItem item={item} key={item.id} />
         ))}
-      </div>
-    </div>
+      </ItemContainer>
+    </CollectionContainer>
   );
 };
 const mapStateToProps = (state, ownProps) => ({
