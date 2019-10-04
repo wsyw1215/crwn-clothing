@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { selectCollection } from "../../redux/collection/collection.selectors";
 const Category = ({ collection }) => {
   console.log(collection);
-  const { items } = collection;
+  const { items, title } = collection;
   return (
     <CollectionContainer>
-      <Title>{collection.title}</Title>
+      <Title>{title}</Title>
       <ItemContainer>
         {items.map(item => (
           <CollectionItem item={item} key={item.id} />

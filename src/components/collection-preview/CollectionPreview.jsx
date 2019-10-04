@@ -8,8 +8,8 @@ import CollectionItem from "../collection-item/CollectionItem";
 import { withRouter } from "react-router-dom";
 
 const CollectionPreview = ({ title, items, history, match }) => {
-  console.log(history);
-  console.log(match);
+  // console.log(history);
+  console.log(match.url);
   return (
     <CollectionPreviewCintainer>
       <Title
