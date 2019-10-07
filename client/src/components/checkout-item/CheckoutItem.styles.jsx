@@ -12,6 +12,9 @@ export const CheckoutItemContainer = styled.div`
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+  @media only screen and (max-width: 800px) {
+    font-size: 16px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -26,6 +29,9 @@ export const ImageContainer = styled.div`
 
 export const Name = styled.span`
   ${colStyle}
+  @media only screen and (max-width: 800px) {
+    margin-right: 10px;
+  }
 `;
 export const Quantity = styled.span`
   display: flex;
@@ -33,6 +39,9 @@ export const Quantity = styled.span`
 `;
 export const Price = styled.span`
   ${colStyle}
+  @media only screen and (max-width: 800px) {
+    width: 13%;
+  }
 `;
 
 export const Value = styled.span`

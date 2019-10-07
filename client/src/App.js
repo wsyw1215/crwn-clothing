@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import HomePage from "./pages/homepage/HomePage.jsx";
 import Checkout from "./pages/checkout/Checkout";
 import Shop from "./pages/shop/Shop.jsx";
@@ -10,14 +9,16 @@ import { connect } from "react-redux";
 import { checkUserSession } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
+import { GlobalStyle } from "./global.styles";
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
-  },[checkUserSession]);
+  }, [checkUserSession]);
 
   return (
     <div>
+      <GlobalStyle/>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage}></Route>

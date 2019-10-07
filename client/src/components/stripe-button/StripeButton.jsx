@@ -20,7 +20,7 @@ const StripeButton = ({ price }) => {
         alert("payment successful");
       })
       .catch(err => {
-        console.log("payment error:",JSON.parse(err));
+        console.log("payment error:", JSON.parse(err));
       });
   };
   return (
