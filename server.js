@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 
 // 在server解析gizp用的
 // 測試重推
-app.use(compression);
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
