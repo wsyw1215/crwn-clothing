@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+      {/* redux的middleware，用來將rudex所管理的資料存入localstorage */}
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
